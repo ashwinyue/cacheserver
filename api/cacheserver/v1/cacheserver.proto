@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cacheserver.v1;
+
+import "google/protobuf/empty.proto";
+import "cacheserver/v1/namespaced.proto";
+import "cacheserver/v1/secret.proto";
+
+option go_package = "cacheserver/api/cacheserver/v1;v1";
+
+service CacheServer {
+  rpc Set(SetRequest) returns (google.protobuf.Empty) {}
+  rpc Del(DelRequest) returns (google.protobuf.Empty) {}
+  rpc Get(GetRequest) returns (GetResponse) {}
+
+  rpc SetSecret(SetSecretRequest) returns (google.protobuf.Empty) {}
+  rpc DelSecret(DelSecretRequest) returns (google.protobuf.Empty) {}
+  rpc GetSecret(GetSecretRequest) returns (GetSecretResponse) {}
+}
